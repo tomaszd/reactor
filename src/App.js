@@ -13,12 +13,17 @@ function App() {
 
   useEffect(() => {
      const storedTodos = JSON.parse(localStorage.getItem(LOCAL_STORAGE_KEY))
-     if (storedTodos) setTodos(storedTodos)
+     if (storedTodos) {setTodos(storedTodos)
+      console.log("useEffect storedTools"+localStorage.getItem(LOCAL_STORAGE_KEY))
+    }
+    
   },[])
 
   useEffect(() => {
     localStorage.setItem(LOCAL_STORAGE_KEY, JSON.stringify(todos))
+    console.log("useEffect set item "+ JSON.stringify(todos))
   },[todos])
+
   function toggleTodo(id){
     const newTodos = [ ...todos]
     const todo = newTodos.find(todo => todo.id === id)
@@ -33,9 +38,9 @@ function App() {
     setTodos(prevTodos =>{
       return [...prevTodos,{id:uuidv4(), name: name,completed:false}]
     })
-    todoNameRef.current.value=null
-     
+    todoNameRef.current.value=null     
   }
+
   function handleClearTodos(){
     const newTodos= todos.filter(todo => !todo.completed )
     setTodos(newTodos)
@@ -51,6 +56,6 @@ function App() {
     </> 
        )
 }
-
+  
 export default App;
     
