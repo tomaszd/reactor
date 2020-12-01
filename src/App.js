@@ -45,6 +45,20 @@ function App() {
     const newTodos= todos.filter(todo => !todo.completed )
     setTodos(newTodos)
   }
+
+  function fetchData() {
+    console.log("start fetching");
+    var xhr = new XMLHttpRequest()
+    xhr.addEventListener('load', () => {
+      document.getElementById("response_val").innerHTML = xhr.responseText;
+      document.getElementById("response_status").innerHTML = "STATUS: "+xhr.status;
+      console.log(xhr.responseText)
+    })
+    xhr.open('GET', 'https://dog.ceo/api/breeds/list/all')
+    xhr.send()
+
+  }
+
   return (
     <>
       <TodoList todos={todos} toggleTodo={toggleTodo}/>
@@ -53,9 +67,11 @@ function App() {
       <button onClick={handleClearTodos}> Clear Completed Task</button>
       <div>{todos.filter(todo => !todo.completed).length} left to do </div>
       <div>{todos.filter(todo => todo.completed).length} already done </div>
+      <button onClick={fetchData}>Click to fetch current data</button>
+      <div id="response_val">RESPONSE EMPTY</div>
+      <div id="response_status">RESPONSE STATUS</div>
     </> 
        )
 }
   
 export default App;
-    
