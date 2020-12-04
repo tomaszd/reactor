@@ -76,9 +76,9 @@ function App() {
       <div>{todos.filter(todo => todo.completed).length} already done </div>
       <h3>Manage tasks</h3>
       <input ref={todoNameRef} type="text"/>
-      <button onClick={handleAddTodo}>Add Task todo</button>
+      <button class="button" onClick={handleAddTodo}>Add Task todo</button>
       <p></p>
-      <button onClick={handleClearTodos}> Clear Completed Task</button>
+      <button class="button" onClick={handleClearTodos}> Clear Completed Task</button>
       {/*<button onClick={fetchData}>Click to fetch current data</button>
       <div id="response_val">RESPONSE EMPTY</div>
       <div id="response_status">RESPONSE STATUS</div>*/}

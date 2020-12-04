@@ -36,3 +36,43 @@
     transform: rotate(360deg);
   }
 }
+
+div {
+  margin:5px;
+
+}
+
+.button {
+  display: inline-block;
+  padding: 8px 15px;
+  font-size: 20px;
+  margin:5px;
+  cursor: pointer;
+  text-align: center;
+  text-decoration: none;
+  outline: none;
+  color: #fff;
+  background-color: #4da6ff;
+  border: none;
+  border-radius: 15px;
+  box-shadow: 0 8px #999;
+}
+
+.button:hover {background-color: #80bfff}
+
+.button:active {
+  background-color: #0080ff;
+  box-shadow: 0 5px #666;
+  transform: translateY(4px);
+}
+input[type=text], select {
+  width: 30%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  display: inline-block;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+  font-size: 20px;
+}
+
