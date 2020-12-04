@@ -57,23 +57,28 @@ function App() {
     xhr.open('GET', 'https://dog.ceo/api/breeds/list/all')
     xhr.send()
 
-
   }
 
   return (
     <>
-      <h3>All daily tasks:</h3>
+      <h2>Daily Task Runner</h2>
+      <h3>All tasks:</h3>
       <TodoList todos={todos} toggleTodo={toggleTodo}/>
-
-      <h3>Still things to do</h3>
+      <p></p>
+      <div>{todos.length} tasks total </div>
+      <h3>Tasks to do:</h3>
       <TodoList todos={todos.filter(todo => !todo.completed)} toggleTodo={toggleTodo}/>
+      <p></p>
       <div>{todos.filter(todo => !todo.completed).length} left to do </div>
-      <h3>Already Completed</h3>
+      <h3>Already Completed:</h3>
       <TodoList todos={todos.filter(todo => todo.completed)} toggleTodo={toggleTodo}/>
+      <p></p>
+      <div>{todos.filter(todo => todo.completed).length} already done </div>
+      <h3>Manage tasks</h3>
       <input ref={todoNameRef} type="text"/>
       <button onClick={handleAddTodo}>Add Task todo</button>
+      <p></p>
       <button onClick={handleClearTodos}> Clear Completed Task</button>
-      <div>{todos.filter(todo => todo.completed).length} already done </div>
       {/*<button onClick={fetchData}>Click to fetch current data</button>
       <div id="response_val">RESPONSE EMPTY</div>
       <div id="response_status">RESPONSE STATUS</div>*/}
